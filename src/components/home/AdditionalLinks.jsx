@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 const links = [
   {
     label: 'NU Admission Link',
-    link: '/',
+    link: 'http://admission.nu.edu.bd/',
   },
   {
-    label: 'NU Form Fill Up Link',
-    link: '/',
+    label: 'NU Recent Notices',
+    link: 'https://www.nu.ac.bd/recent-news-notice.php',
   },
   {
     label: 'XI Admission Link',
-    link: '/',
+    link: '/admission-notice',
   },
 ];
 
@@ -25,6 +25,7 @@ const AdditionalLinks = () => {
         {links.map((link, i) => (
           <Link
             to={link.link}
+            target="_blank"
             className="underline font-medium hover:text-primary duration-300"
             key={i}
           >

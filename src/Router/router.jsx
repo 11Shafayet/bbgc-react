@@ -28,11 +28,26 @@ import Teachers from '../pages/Teachers';
 import VicePrincipal from '../pages/VicePrincipal';
 import VideoGallery from '../pages/VideoGallery';
 import VisionAndMission from '../pages/VisionAndMission';
+import ExamRoutine from '../pages/ExamRoutine';
+
+// admin
+import Dashboard from '../pages/admin/Dashboard';
+import Login from '../pages/admin/Login';
+import AddNotice from '../pages/admin/AddNotice';
+import AllNotices from '../pages/admin/AllNotices';
+import AddRoutine from '../pages/admin/AddRoutine';
+import AddTeacher from '../pages/admin/AddTeacher';
+import AllTeachers from '../pages/admin/AllTeachers';
+import DashboardLayout from '../MainLayout/DashboardLayout';
+import AllRoutine from '../pages/admin/AllRoutine';
+import Register from '../pages/admin/Register';
+import AllUsers from '../pages/admin/AllUsers';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayout></MainLayout>,
+    element: <MainLayout />,
     children: [
       {
         path: '/',
@@ -85,6 +100,10 @@ const router = createBrowserRouter([
       {
         path: '/exam-notice',
         element: <ExamNotice />,
+      },
+      {
+        path: '/exam-routine',
+        element: <ExamRoutine />,
       },
       {
         path: '/history-bangla',
@@ -145,6 +164,86 @@ const router = createBrowserRouter([
       {
         path: '/vision-and-mission',
         element: <VisionAndMission />,
+      },
+    ],
+  },
+
+  // admin routes
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: '/dashboard',
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/login',
+        element: <Login />,
+      },
+      {
+        path: '/dashboard/register',
+        element: <Register />,
+      },
+      {
+        path: '/dashboard/all-users',
+        element: (
+          <PrivateRoute>
+            <AllUsers />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/add-notice',
+        element: (
+          <PrivateRoute>
+            <AddNotice />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/all-notice',
+        element: (
+          <PrivateRoute>
+            <AllNotices />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/add-routine',
+        element: (
+          <PrivateRoute>
+            <AddRoutine />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/all-routine',
+        element: (
+          <PrivateRoute>
+            <AllRoutine />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/add-teacher',
+        element: (
+          <PrivateRoute>
+            <AddTeacher />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/all-teachers',
+        element: (
+          <PrivateRoute>
+            <AllTeachers />
+          </PrivateRoute>
+        ),
       },
     ],
   },

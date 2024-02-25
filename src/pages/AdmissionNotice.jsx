@@ -1,12 +1,48 @@
-'use client';
-
-import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { noticeList } from '/src/data';
 import { Link } from 'react-router-dom';
+import useAxiosPublic from '../hooks/useAxiosPublic';
+import Loader from '../components/common/Loader';
 
 const AdmissionNotice = () => {
   const [searchedText, setSearchedText] = useState('');
+  const [sortedData, setSortedData] = useState([]);
+  const axiosPublic = useAxiosPublic();
+
+  const { isLoading, data } = useQuery({
+    queryKey: ['notice'],
+    queryFn: () =>
+      axiosPublic
+        .get(`/notice`)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((error) => {
+          console.log('axios get error', error);
+          throw error;
+        }),
+  });
+
+  useEffect(() => {
+    const newSortedData = data?.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+
+    setSortedData(newSortedData);
+  }, [data]);
+
+  const searchFilter = (item) => {
+    if (item.title.includes(searchedText)) {
+      return item;
+    }
+  };
+
+  const catFilter = (item) => {
+    if (item.category === 'admission') {
+      return item;
+    }
+  };
 
   return (
     <section className="relative py-12 md:py-20">
@@ -30,32 +66,38 @@ const AdmissionNotice = () => {
           </div>
 
           <div className="my-6">
-            {noticeList
-              .filter((item) => item?.noticeType === 'admission')
-              .map((notice, i) => {
-                return (
-                  <div
-                    key={i}
-                    className="flex flex-col md:flex-row gap-4 justify-between items-center py-6 border-b border-dashed border-primary"
-                  >
-                    <div>
-                      <p className="text-sm opacity-50">{notice?.date}</p>
+            {isLoading ? (
+              <Loader />
+            ) : (
+              sortedData
+                ?.filter(catFilter)
+                ?.filter(searchFilter)
+                ?.map((notice, i) => {
+                  console.log(data);
+                  return (
+                    <div
+                      key={i}
+                      className="flex flex-col md:flex-row gap-4 justify-between items-center py-6 border-b border-dashed border-primary"
+                    >
+                      <div>
+                        <p className="text-sm opacity-50">{notice?.date}</p>
+                        <Link
+                          to={notice?.link ? notice.link : ''}
+                          className="text-xl font-medium text-ellipsis overflow-x-hidden hover:text-primary duration-300"
+                        >
+                          {notice?.title}
+                        </Link>
+                      </div>
                       <Link
                         to={notice?.link ? notice.link : ''}
-                        className="text-xl font-medium text-ellipsis overflow-x-hidden hover:text-primary duration-300"
+                        className="border border-primary py-2 px-5 text-primary hover:bg-primary hover:text-white duration-500 rounded-md font-medium"
                       >
-                        {notice?.title}
+                        Read More
                       </Link>
                     </div>
-                    <Link
-                      to={notice?.link ? notice.link : ''}
-                      className="border border-primary py-2 px-5 text-primary hover:bg-primary hover:text-white duration-500 rounded-md font-medium"
-                    >
-                      Read More
-                    </Link>
-                  </div>
-                );
-              })}
+                  );
+                })
+            )}
           </div>
         </div>
       </div>

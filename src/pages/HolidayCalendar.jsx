@@ -8,7 +8,7 @@ const HolidayCalendar = () => {
           <h4 className="text-3xl">{`Holiday Calendar`}</h4>
 
           <div className="mt-4 mb-8 bg-[#d3d3d3] w-full h-[1px]" />
-          <div className="max-w-[800px] w-full h-auto">
+          <div className="max-w-[800px] w-full h-auto mx-auto">
             <img src={holiday} alt="holiday" className="w-full h-full" />
           </div>
         </div>

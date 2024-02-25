@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 const links = [
   {
     label: 'Sylhet Education Board',
-    link: '/',
+    link: 'https://sylhetboard.gov.bd/',
   },
   {
     label: 'Ministry Of Education',
-    link: '/',
+    link: 'https://moedu.gov.bd/',
   },
   {
-    label: 'Sylhet Education Board',
-    link: '/',
+    label: 'Education Board',
+    link: 'http://www.educationboard.gov.bd/',
   },
   {
     label: 'National University',
-    link: '/',
+    link: 'https://www.nu.ac.bd/',
   },
 ];
 
@@ -27,6 +27,7 @@ const ImLinks = () => {
         {links.map((link, i) => (
           <Link
             to={link.link}
+            target="_blank"
             className="underline font-medium hover:text-primary duration-300"
             key={i}
           >

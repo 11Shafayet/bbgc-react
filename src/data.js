@@ -19,7 +19,8 @@ import sevnteen from '/assets/teachers/17.jpeg';
 export const teachersList = [
   // bangla
   {
-    label: 'Department of Bangla',
+    label: 'Bangla',
+    dep: 'bangla',
     teachers: [
       {
         name: 'প্রশান্ত কুমার মৃধা',
@@ -32,42 +33,44 @@ export const teachersList = [
         dep: 'bangla',
         mobile: '01747-744455',
         designation: 'প্রভাষক',
-        image: two,
+        pic: two,
       },
     ],
   },
 
   // english
   {
-    label: 'Department of English',
+    label: 'English',
+    dep: 'english',
     teachers: [
       {
         name: 'দিবাকর তালুকদার',
         dep: 'english',
         mobile: '01732-860500',
         designation: 'সহকারী অধ্যাপক',
-        image: four,
+        pic: four,
       },
       {
         name: 'আবু মুসা মোঃ তারেক',
         dep: 'english',
         mobile: '01772-791906',
         designation: 'সহকারী অধ্যাপক(সংযুক্ত)',
-        image: sixteen,
+        pic: sixteen,
       },
       {
         name: 'উর্মি লাবণী চক্রবর্তী',
         dep: 'english',
         mobile: '01717-497832',
         designation: 'প্রভাষক',
-        image: sevnteen,
+        pic: sevnteen,
       },
     ],
   },
 
   // Economics
   {
-    label: 'Department of Economics',
+    label: 'Economics',
+    dep: 'economics',
     teachers: [
       {
         name: 'ড. আবু ইউসুফ মো. শেরউজ্জামান',
@@ -80,42 +83,44 @@ export const teachersList = [
         dep: 'economics',
         mobile: '01731-0015559',
         designation: 'প্রভাষক',
-        image: nine,
+        pic: nine,
       },
       {
         name: 'নিযুম তালুকদার',
         dep: 'economics',
         mobile: '01985-082995',
         designation: 'প্রভাষক',
-        image: three,
+        pic: three,
       },
     ],
   },
 
   // Political Science
   {
-    label: 'Department of Political Science',
+    label: 'Political Science',
+    dep: 'political-science',
     teachers: [
       {
         name: 'রাহুল কান্তি সরকার',
         dep: 'political-science',
         mobile: '01714-082542',
         designation: 'প্রভাষক',
-        image: eleven,
+        pic: eleven,
       },
       {
         name: 'আল আমিন',
         dep: 'political-science',
         mobile: '01746-682822',
         designation: 'প্রভাষক',
-        image: one,
+        pic: one,
       },
     ],
   },
 
   // Philosophy
   {
-    label: 'Department of Philosophy',
+    label: 'Philosophy',
+    dep: 'philosophy',
     teachers: [
       {
         name: 'মোঃ শহীদুল আলম',
@@ -128,28 +133,29 @@ export const teachersList = [
         dep: 'philosophy',
         mobile: '01712-051594',
         designation: 'সহযোগী অধ্যাপক, ইনসিটু(সহকারী অধ্যাপক)',
-        image: five,
+        pic: five,
       },
       {
         name: 'এনায়েত উল্লাহ শরীফ',
         dep: 'philosophy',
         mobile: '01730-716471',
         designation: 'প্রভাষক',
-        image: six,
+        pic: six,
       },
       {
         name: 'মোহাম্মদ আরিফ',
         dep: 'philosophy',
         mobile: '01858-824063',
         designation: 'প্রভাষক',
-        image: thirteen,
+        pic: thirteen,
       },
     ],
   },
 
   // Islamic History And Culture
   {
-    label: 'Department of Islamic History And Culture',
+    label: 'Islamic History And Culture',
+    dep: 'islamic-history-and-culture',
     teachers: [
       {
         name: 'মোঃ রমজান আলী',
@@ -174,7 +180,8 @@ export const teachersList = [
 
   // Management
   {
-    label: 'Department of Management',
+    label: 'Management',
+    dep: 'management',
     teachers: [
       {
         name: 'মারিয়া আক্তার',
@@ -187,7 +194,8 @@ export const teachersList = [
 
   // Accounting
   {
-    label: 'Department of Accounting',
+    label: 'Accounting',
+    dep: 'accounting',
     teachers: [
       {
         name: 'মোঃ আব্দুর রহিম',
@@ -200,7 +208,8 @@ export const teachersList = [
 
   // Physics
   {
-    label: 'Department of Physics',
+    label: 'Physics',
+    dep: 'physics',
     teachers: [
       {
         name: 'শোহা হাওয়া চৌধুরী',
@@ -213,7 +222,8 @@ export const teachersList = [
 
   // Chemistry
   {
-    label: 'Department of Chemistry',
+    label: 'Chemistry',
+    dep: 'chemistry',
     teachers: [
       {
         name: 'মোঃ সিরাজ উদ্দিন',
@@ -226,13 +236,15 @@ export const teachersList = [
 
   // Mathematics
   {
-    label: 'Department of Mathematics',
+    label: 'Mathematics',
+    dep: 'mathematics',
     teachers: [],
   },
 
   // Botany
   {
-    label: 'Department of Botany',
+    label: 'Botany',
+    dep: 'botany',
     teachers: [
       {
         name: 'মাসুদুল হাসান',
@@ -251,7 +263,8 @@ export const teachersList = [
 
   // Zoology
   {
-    label: 'Department of Zoology',
+    label: 'Zoology',
+    dep: 'zoology',
     teachers: [
       {
         name: 'এ. বি. এম. জাফরিয়া',
@@ -264,13 +277,15 @@ export const teachersList = [
 
   // Computer
   {
-    label: 'Department of Computer',
+    label: 'Computer',
+    dep: 'computer',
     teachers: [],
   },
 
   // ICT
   {
-    label: 'Department of ICT',
+    label: 'ICT',
+    dep: 'ict',
     teachers: [],
   },
 ];
@@ -279,28 +294,28 @@ export const noticeList = [
   {
     date: '13/02/2024',
     title: 'দ্বাদশ শ্রেণির প্রাক-নির্বাচনী পরীক্ষার ফলাফল (বিজ্ঞান গ্রুপ)।',
-    image: '',
+    pic: '',
     link: '',
     noticeType: 'exam',
   },
   {
     date: '13/02/2024',
     title: 'দ্বাদশ শ্রেণির প্রাক-নির্বাচনী পরীক্ষার ফলাফল (বিজ্ঞান গ্রুপ)।',
-    image: '',
+    pic: '',
     link: '',
     noticeType: 'exam',
   },
   {
     date: '13/02/2024',
     title: 'দ্বাদশ শ্রেণির প্রাক-নির্বাচনী পরীক্ষার ফলাফল (বিজ্ঞান গ্রুপ)।',
-    image: '',
+    pic: '',
     link: '',
     noticeType: 'admission',
   },
   {
     date: '13/02/2024',
     title: 'দ্বাদশ শ্রেণির প্রাক-নির্বাচনী পরীক্ষার ফলাফল (বিজ্ঞান গ্রুপ)।',
-    image: '',
+    pic: '',
     link: '',
     noticeType: 'exam',
   },

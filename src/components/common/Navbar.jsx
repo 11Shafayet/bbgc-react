@@ -197,40 +197,6 @@ const Navbar = () => {
                 activeNav ? 'flex' : 'hidden lg:flex'
               }`}
             >
-              {/* {navItems.map((item, i) => (
-                <li
-                  className={`relative flex items-center gap-2 text-base font-medium z-[1000] hover:cursor-pointer`}
-                  key={i}
-                  onClick={() =>
-                    item.subMenu && subMenu !== i
-                      ? setSubMenu(i)
-                      : setSubMenu(0)
-                  }
-                >
-                  <Link href={item.link ? item.link : ''}>{item.text}</Link>
-                  {item.subMenu && subMenu !== i && <FaChevronDown />}
-                  {item.subMenu && subMenu === i && <FaChevronUp />}
-                  {item.subMenu && subMenu === i && (
-                    <ul
-                      className="absolute top-[111%] flex flex-col gap-y-2 left-1/2 md:-left-full -translate-x-1/2 md:translate-x-0 shadow-light bg-white p-4 md:p-6 min-w-[250px] rounded z-[9999999999999999]"
-                      ref={submenuRef}
-                    >
-                      {item.subMenu.map((sub, j) => {
-                        return (
-                          <li
-                            className={`relative text-base font-medium hover:text-primary`}
-                            key={j}
-                          >
-                            <Link to={sub.link ? sub.link : ''}>
-                              {sub.text}
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                </li>
-              ))} */}
               {navItems.map((item, i) => (
                 <li
                   className={`relative flex flex-col items-center gap-2 text-base font-medium z-[1000] hover:cursor-pointer`}
@@ -240,10 +206,14 @@ const Navbar = () => {
                       ? setSubMenu(i)
                       : setSubMenu(0)
                   }
-                  style={{ position: 'relative' }} // Add this line
+                  style={{ position: 'relative' }}
                 >
                   <div className="flex items-center gap-2">
-                    <Link href={item.link ? item.link : ''}>{item.text}</Link>
+                    {item?.link ? (
+                      <Link href={item.link}>{item.text}</Link>
+                    ) : (
+                      <h6>{item.text}</h6>
+                    )}
                     {item.subMenu && subMenu !== i && <FaChevronDown />}
                     {item.subMenu && subMenu === i && <FaChevronUp />}
                   </div>
