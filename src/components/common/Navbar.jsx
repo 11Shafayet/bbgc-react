@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import logo from '/assets/logo.png';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const navItems = [
@@ -192,7 +191,7 @@ const Navbar = () => {
             </div>
 
             {/* nav */}
-            <ul
+            {/* <ul
               className={`relative flex-col lg:flex-row items-center justify-between w-full gap-6 py-4 lg:py-0 z-1000 ${
                 activeNav ? 'flex' : 'hidden lg:flex'
               }`}
@@ -208,7 +207,7 @@ const Navbar = () => {
                   }
                   style={{ position: 'relative' }}
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="group flex items-center gap-2">
                     {item?.link ? (
                       <Link href={item.link}>{item.text}</Link>
                     ) : (
@@ -219,6 +218,50 @@ const Navbar = () => {
                   </div>
                   {item.subMenu && subMenu === i && (
                     <ul className="relative lg:absolute top-[111%] flex flex-col gap-y-2 left-1/2 lg:-left-full -translate-x-1/2 lg:translate-x-0 shadow-light bg-white p-4 lg:p-6 min-w-[250px] rounded z-[99999]">
+                      {item.subMenu.map((sub, j) => {
+                        return (
+                          <li
+                            className={`relative text-base font-medium hover:text-primary`}
+                            key={j}
+                          >
+                            <Link to={sub.link ? sub.link : ''}>
+                              {sub.text}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul> */}
+
+            {/* hover effect */}
+            <ul
+              className={`relative flex-col lg:flex-row items-center justify-between w-full gap-6 py-4 lg:py-0 z-1000 ${
+                activeNav ? 'flex' : 'hidden lg:flex'
+              }`}
+            >
+              {navItems.map((item, i) => (
+                <li
+                  className={`group relative flex flex-col items-center gap-2 text-base font-medium z-[1000] hover:cursor-pointer`}
+                  key={i}
+                  onClick={() =>
+                    item.subMenu && subMenu !== i
+                      ? setSubMenu(i)
+                      : setSubMenu(0)
+                  }
+                >
+                  <div className="flex items-center gap-2">
+                    {item?.link ? (
+                      <Link href={item.link}>{item.text}</Link>
+                    ) : (
+                      <h6>{item.text}</h6>
+                    )}
+                  </div>
+
+                  {item.subMenu && (
+                    <ul className="group-hover:flex relative lg:absolute top-[111%] hidden flex-col gap-y-2 left-1/2 lg:-left-full -translate-x-1/2 lg:translate-x-0 shadow-light bg-white p-4 lg:p-6 min-w-[250px] rounded z-[99999]">
                       {item.subMenu.map((sub, j) => {
                         return (
                           <li

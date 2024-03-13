@@ -53,10 +53,13 @@ const AddRoutine = () => {
 
   const addData = async () => {
     try {
-      const result = await axios.post(`https://bbgc-backend.vercel.app/routine`, {
-        category,
-        pic,
-      });
+      const result = await axios.post(
+        `https://bbgc-backend.vercel.app/routine`,
+        {
+          category,
+          pic,
+        }
+      );
       console.log(result);
       return result;
     } catch (error) {
@@ -92,6 +95,7 @@ const AddRoutine = () => {
       }
     }
   };
+
   return (
     <div className="py-12">
       <div className="container mx-auto px-4">

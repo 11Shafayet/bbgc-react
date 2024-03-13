@@ -7,6 +7,7 @@ import { useMutation } from '@tanstack/react-query';
 const AddNotice = () => {
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
   const [category, setCategory] = useState('');
   const [pic, setPic] = useState('');
   const formattedDate = new Date().toLocaleDateString('en-US', {
@@ -58,15 +59,20 @@ const AddNotice = () => {
 
   const addData = async () => {
     try {
-      const result = await axios.post(`https://bbgc-backend.vercel.app/notice`, {
-        title,
-        date: formattedDate,
-        category,
-        pic,
-      });
-      console.log(result);
+      const result = await axios.post(
+        `https://bbgc-backend.vercel.app/notice`,
+        {
+          title,
+          date: formattedDate,
+          category,
+          pic,
+          link,
+        }
+      );
+      toast.success('Notice added successfully!');
       return result;
     } catch (error) {
+      toast.error('Failed To add new notice!');
       console.log(error);
       throw error;
     }
@@ -83,18 +89,16 @@ const AddNotice = () => {
 
     console.log(pic);
 
-    if (!title || !category || !pic) {
+    if (!title || !category || !pic || !link) {
       toast.warning('Please fill all the fields!');
       setLoading(false);
       return;
     } else {
       try {
         await mutateAsync();
-        toast.success('Notice added successfully!');
         setLoading(false);
       } catch (error) {
         console.error('Error adding new notice:', error);
-        toast.warning('Failed To add new notice!');
         setLoading(false);
       }
     }
@@ -167,6 +171,25 @@ const AddNotice = () => {
                   <label htmlFor="category">Admission</label>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* input group */}
+          <div className="flex flex-col md:flex-row gap-4 justify-between mt-6">
+            {/* link */}
+            <div className=" flex flex-col gap-y-3 w-full">
+              <label htmlFor="link" className="form-label font-medium">
+                Notice Link
+              </label>
+              <input
+                type="text"
+                placeholder="Link"
+                name="link"
+                className="bg-white shadow-light py-3 px-4 border rounded"
+                required
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
+              />
             </div>
           </div>
 

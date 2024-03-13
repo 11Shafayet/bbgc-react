@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useLottie } from 'lottie-react';
-import ScrollDown from '/src/components/common/ScrollDown.json';
 import one from '/assets/one.jpg';
 import eleven from '/assets/11.jpg';
 import seventeen from '/assets/17.jpg';
@@ -25,13 +23,6 @@ const Hero = () => {
     return () => clearInterval(imageSlider);
   }, []);
 
-  //lottie image
-  const options = {
-    animationData: ScrollDown,
-    loop: true,
-  };
-  const { View } = useLottie(options);
-
   return (
     <header className="relative min-h-[50vh] md:min-h-[80vh] py-12 md:py-20 flex justify-center items-center z-10">
       <img
@@ -52,11 +43,6 @@ const Hero = () => {
             </span>
           </h4>
         </div>
-      </div>
-
-      {/* lottie */}
-      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 bg-white rounded-t-md px-4">
-        {View}
       </div>
 
       {/* arrows */}

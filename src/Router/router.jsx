@@ -43,6 +43,7 @@ import AllRoutine from '../pages/admin/AllRoutine';
 import Register from '../pages/admin/Register';
 import AllUsers from '../pages/admin/AllUsers';
 import PrivateRoute from './PrivateRoute';
+import AddInfo from '../pages/admin/addInfo';
 
 const router = createBrowserRouter([
   {
@@ -239,6 +240,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/dashboard/all-teachers',
+        element: (
+          <PrivateRoute>
+            <AllTeachers />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/add-info',
+        element: (
+          <PrivateRoute>
+            <AddInfo />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/dashboard/all/studentsInfo',
         element: (
           <PrivateRoute>
             <AllTeachers />

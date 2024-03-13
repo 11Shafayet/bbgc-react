@@ -10,7 +10,9 @@ const VicePriBio = () => {
           className="w-28 h-28 xl:w-36 xl:h-36 object-cover rounded-md"
         />
         <div>
-          <h5 className="text-2xl font-semibold">MD. Tarikul Islam</h5>
+          <h5 className="text-2xl font-semibold">
+            Professor Md. Tarikul Islam
+          </h5>
           <h5 className="text-lg font-medium">Vice Principal</h5>
           <h5 className="font-medium">ID: 00004243</h5>
           <p className="opacity-75 italic">tarikul-et@yahoo.com</p>
